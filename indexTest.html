@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="spr/sprite.css">
+
+</head>
+<script>
+    window.onload = function(){
+        /*750代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+         为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
+        getRem(750,100)
+    };
+    window.onresize = function(){
+        getRem(750,100)
+    };
+    function getRem(pwidth,prem){
+        var html = document.getElementsByTagName("html")[0];
+        var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+        html.style.fontSize = oWidth/pwidth*prem + "px";
+    }
+</script>
+<style>
+    .wrap{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #A52422;
+        width: 8rem;
+    }
+    .test-word{
+        height: 0.98rem;
+        line-height: 0.98rem;
+        text-align: center;
+        color: white;
+        font-size: 0.32rem;
+    }
+    .closeBtn{
+        width: 0.26rem;
+        height: 0.26rem;
+    }
+</style>
+<body>
+
+<div class="wrap">
+    <div class="test-word">
+        this is 首页测试
+        <img src="img/closeBtn.png" class="closeBtn">
+    </div>
+</div>
+</body>
+</html>
